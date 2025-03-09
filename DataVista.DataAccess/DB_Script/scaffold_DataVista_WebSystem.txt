@@ -1,0 +1,16 @@
+﻿// ------DataVista-------------
+
+ 
+ 
+
+
+
+ // Add new Connection String:-
+ scaffold-DbContext 'Data Source=DESKTOP-VUF40GQ\SQLEXPRESS; Initial Catalog=DataVista; user id=sa; password=2015;TrustServerCertificate=True' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+ //For Update
+ scaffold-DbContext 'Data Source=DESKTOP-VUF40GQ\SQLEXPRESS; Initial Catalog=DataVista; user id=sa; password=2015;TrustServerCertificate=True' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -f
+
+
+
+   

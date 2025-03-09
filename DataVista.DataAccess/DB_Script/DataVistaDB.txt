@@ -1,0 +1,78 @@
+﻿CREATE DATABASE DataVista
+USE  DataVista
+
+ ------------09/03/2025----------
+CREATE TABLE Role(Id INT PRIMARY KEY IDENTITY(1,1),
+                  Name NVARCHAR(300),
+                  ImageIcon NVARCHAR(300),
+                  IsDeleted BIT)
+
+ CREATE TABLE Registration(Id INT PRIMARY KEY IDENTITY(1,1),
+				      RoleId INT FOREIGN KEY(RoleId) REFERENCES Role(Id),
+                      Name NVARCHAR(300),
+					  PhoneNumber NVARCHAR(MAX),
+					  Email NVARCHAR(MAX),
+					  Password NVARCHAR(MAX),
+					  AddedData DATETIME,
+                      IsDeleted BIT)
+
+CREATE TABLE Country(Id INT PRIMARY KEY IDENTITY(1,1),
+                     Name NVARCHAR(300),
+                     CountryCode NVARCHAR(100),
+                     ImgIcon NVARCHAR(300),
+                     IsDeleted BIT)
+
+CREATE TABLE State(Id INT PRIMARY KEY IDENTITY(1,1),
+                   CountryId INT FOREIGN KEY(CountryId) REFERENCES Country(Id),                    
+                   Name NVARCHAR(300),
+                   ImgIcon NVARCHAR(300),
+                   IsDeleted BIT)
+
+CREATE TABLE City(Id INT PRIMARY KEY IDENTITY(1,1),
+                  StateId INT FOREIGN KEY(StateId) REFERENCES State(Id),
+                  Name NVARCHAR(300),
+                  ImgIcon NVARCHAR(300),
+                  IsDeleted BIT)
+
+CREATE TABLE CityZipCode(Id INT PRIMARY KEY IDENTITY(1,1),
+                      CityId INT FOREIGN KEY(CityId) REFERENCES City(Id),
+                      Name NVARCHAR(300),
+                      IsDeleted BIT)
+
+ 
+
+create table LoginActivity
+(
+Id int identity(1,1) primary key,
+UserId int foreign key references Registration(Id),
+EventTypeId int,
+EventDateTime datetime,
+IsDeleted bit
+);
+ 
+
+Create Table AppInfo(
+Id int primary key Identity(1,1),
+UserId int foreign key references Registration(Id),
+Name varchar(100),
+Logo varchar(100),
+Favicon varchar(100),
+LoginBackgroundImage varchar(100),
+IsDeleted bit)
+
+
+Create Table EmailTemplate (Id int primary key identity(1,1), 
+UserId int foreign key references Registration(Id),
+                   Name nvarchar(200),
+                   Subject nvarchar(200),
+                   Template nvarchar(Max),
+                   IsDeleted bit)
+               
+Create Table SmtpConfig(Id int Primary key Identity(1,1),
+UserId int foreign key references Registration(Id),
+                        UserName nvarchar(300),
+                        Password nvarchar(max),
+                        Host nvarchar(300),
+                        Port int,
+                        EnableSSL bit,
+                        IsDeleted bit)

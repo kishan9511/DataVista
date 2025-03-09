@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+	var Path = $"{Context.Request.Path}/";
+	bool IsAdmin = Path.Contains("/Admin/");
+	 
+	if (IsAdmin)
+	{
+		Layout = "_AdminLayout";
+	}
+	
+}
