@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IRepository\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DataVista.DataAccess\DataVista.DataAccess.csproj" />
     <ProjectReference Include="..\DataVista.Models\DataVista.Models.csproj" />
     <ProjectReference Include="..\DataVista.Utility\DataVista.Utility.csproj" />
