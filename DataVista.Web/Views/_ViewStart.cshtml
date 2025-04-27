@@ -3,15 +3,12 @@
 @{
 	var Path = $"{Context.Request.Path}/";
 	bool IsAdmin = Path.Contains("/Admin/");
-	//bool IsAnotherRole = Path.Contains("/AnotherRole/");
+ 
 	if (IsAdmin)
 	{
 		Layout = "_AdminLayout";
 	}
-	// if (IsAnotherRole)
-	// {
-	//     Layout = "_AnotherRoleLayout";
-	// }
+ 
 	else
 	{
 		Layout = "_Layout";

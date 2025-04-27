@@ -1,4 +1,4 @@
-﻿namespace DataVista.DataAccess
+﻿namespace DataVista.repository
 {
     public class Class1
     {
