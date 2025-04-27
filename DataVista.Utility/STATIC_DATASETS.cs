@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataVista.Utility;
 
-public class Static_DataSets
+public class STATIC_DATASETS
 {
 
     #region---ROLES---
@@ -47,4 +46,3 @@ public class Static_DataSets
 
 
 }
-
