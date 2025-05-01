@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataVista.Repository.IRepository;
 
-interface IUnitOfWork
+public interface IUnitOfWork
 {
+    public IRoleRepository Role { get; }
+
+
+
+
+
+
+    Task SaveAsync();
+    void SaveChanges();
 }

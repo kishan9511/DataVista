@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DataVista.DataAccess.Models;
 
-namespace DataVista.Models.ViewModels;
+namespace DataVista.Repository.IRepository;
 
-public  class RoleVM
+public interface IRoleRepository :IRepository<Role>
 {
-    public Role Role { get; set; } = new();
+
 }

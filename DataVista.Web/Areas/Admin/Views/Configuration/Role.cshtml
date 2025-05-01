@@ -1,5 +1,101 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model RoleVM
 @{
+	ViewData["Title"] = "Role";
 }
+
+
+<div class="main-content">
+	<div class="page-content">
+		<div class="container-fluid">
+			<!-- start page title -->
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+						<h4 class="mb-sm-0 font-size-18">Role</h4>
+
+						<div class="page-title-right">
+							<ol class="breadcrumb m-0">
+								<li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Dashboard">Home</a></li>
+								<li class="breadcrumb-item active">Role</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Form -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title mb-4">
+							@(Model.Role.Id == 0 ? "Enter Role" : "Update Role")
+						</h2>
+						<form method="post" enctype="multipart/form-data">
+							<input type="hidden" asp-for="Role.Id" value="@Model.Role.Id" />
+							<div class="row">
+								<div class="col-md-6">
+									<div class="mb-3">
+										<label asp-for="Role.Name" class="form-label">Role Name*</label>
+										<input asp-for="Role.Name" type="text" class="form-control" placeholder="Enter Role"
+											   maxlength="300" required />
+										<span asp-validation-for="Role.Name" class="text-danger"></span>
+									</div>
+								</div>
+							</div>
+
+							@if (Model.Role.Id == 0)
+							{
+								<div class="row mt-3">
+									<div class=" col-lg-12 text-center">
+										<button class="btn btn-success w-md" type="submit">Save</button>
+										<a  asp-area="Admin" asp-controller="Configuration" asp-action="Role" class="btn btn-danger w-md ms-2">Reset</a>
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="row mt-3">
+									<div class=" col-lg-12 text-center">
+										<button class="btn btn-warning w-md" type="submit">Update</button>
+										<a asp-area="Admin" asp-controller="Configuration" asp-action="Role" class="btn btn-danger w-md ms-2">Reset</a>
+									</div>
+								</div>
+							}
+						</form>
+					</div>
+				</div>
+				<!-- end select2 -->
+			</div>
+		</div>
+		<!--Data List-->
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title">List of Role</h2>
+						<table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+							<thead class="Tiall">
+								<tr>
+									<th>Serial No.</th>
+									<th>Name</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div> <!-- end col -->
+		</div>
+		<!-- end DataTable -->
+	</div>
+
+
+
+</div>
+<!-- end main content-->
+@section Scripts {
+	<script type="module" src="~/js/Configure/role.js" asp-append-version="true"></script>
+}
+
